@@ -14,12 +14,12 @@ import com.example.sqliteapp02.model.Produit;
 import com.google.android.material.appbar.MaterialToolbar;
 
 public class MainActivity2 extends AppCompatActivity {
-    MaterialToolbar toolbar;
+    private MaterialToolbar toolbar;
 
-    EditText nameEditText,prixEditText;
-    TextView tx ;
+    private EditText nameEditText,prixEditText;
+    private  TextView tx ;
 
-    MyDb myDb ;
+    private MyDb myDb ;
 
 
     @Override

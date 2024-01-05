@@ -16,6 +16,8 @@ public class MyDb extends SQLiteOpenHelper {
     private static final int version = 1;
     public static final String ID = "id";
 
+    private  List<Produit> prodouitList;
+
     public MyDb(@Nullable Context context) {
         super(context, nameDb, null, version);
     }
@@ -43,7 +45,7 @@ public class MyDb extends SQLiteOpenHelper {
     }
 
     public List<Produit> getData(){
-        List<Produit> prodouitList = new ArrayList<>();
+        prodouitList = new ArrayList<>();
         SQLiteDatabase sqlGetData = getReadableDatabase();
         SQLiteDatabase sql = getReadableDatabase();
 
@@ -57,12 +59,22 @@ public class MyDb extends SQLiteOpenHelper {
     }
     public void Delet(Integer id){
         SQLiteDatabase db = getWritableDatabase();
-//       String [] args = {name};
-//        db.delete("Produit",""+ID+"= 1",null);
+//       String [] args = {id+""};
+//        db.delete("Produit",""+ID+"= 1",args);
 //       String s = "DELETE * from Produit where " + ID + " = ";
 
 
         String query = "Delete From Produit where id = "+id+"";
         db.execSQL(query);
+    }
+    public  List<Produit> Search(String name){
+        List<Produit> serchProduits = new ArrayList<>();
+
+        for (Produit i:   this.getData()){
+            if (i.getName().equals(name)){
+                serchProduits.add(i);
+            }
+        }
+        return serchProduits;
     }
 }

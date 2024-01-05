@@ -20,8 +20,11 @@ public class ProduitAdapter extends BaseAdapter {
     MyDb myDb ;
 
 
+    public void setProduitList(List<Produit> produitList) {
+        this.produitList = produitList;
+    }
 
-    public ProduitAdapter(List<Produit> pro,Context con) {
+    public ProduitAdapter(List<Produit> pro, Context con) {
         produitList = pro;
         context = con;
         myDb = new MyDb(con);
